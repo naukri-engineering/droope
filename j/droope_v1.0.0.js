@@ -1,14 +1,39 @@
-/*Version droope_v1.0.0*/
+/*
+The MIT License (MIT)
+
+Copyright (c) 2014 Info Edge India Ltd. (Naukri.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Version: droope_v1.0.0
+Doc: http://https://github.com/naukri-engineering/droope
+Demo: http://naukri-engineering.github.io/droope/
+*/
+
+//Start of droope
 var DD = function(obj, sts, key) {
     var X = this;
     var defWth_fx = 30;
 
     X.obj = obj;
 
-    /*Added by Ankit saini*/
     var defWth = X.obj.postPlaceholder ? X.obj.postPlaceholder.width : 30;
-    //var defWth = obj.postPlaceholder ? obj.postPlaceholder.width || 30;
-    //End of code
 
     X.parentRefData = {};
     X.liCntrFx = [];
@@ -83,6 +108,24 @@ var DD = function(obj, sts, key) {
      */
     X.isSearch = obj.isSearch == false ? false : true;
 
+    function scrollHandler(container, scrollContainer, firstElement, curActiveTouple) {
+        if (curActiveTouple.length) {
+            var scrollTopPos;
+            var scrollCont_maxHeight = scrollContainer.height();
+            var scrollCont_scrollTop = scrollContainer.scrollTop();
+            var visible_bottom = scrollCont_maxHeight + scrollCont_scrollTop;
+            var high_top = (curActiveTouple.position().top + scrollContainer.scrollTop());
+            var high_bottom = high_top + curActiveTouple.outerHeight();
+            if (high_bottom >= visible_bottom) {
+                scrollTopPos = (high_bottom - scrollCont_maxHeight) > 0 ? high_bottom - scrollCont_maxHeight : 0;
+                scrollContainer.scrollTop(scrollTopPos);
+            } else if (high_top < scrollContainer.scrollTop()) {
+                scrollTopPos = high_top;
+                scrollContainer.scrollTop(scrollTopPos);
+            }
+            return scrollTopPos;
+        }
+    }
 
 
     function emptyCalBckFun() {
@@ -283,8 +326,6 @@ var DD = function(obj, sts, key) {
 
     function init(e) {
 
-        //for (var i = 0; i < X.idLen; i++) {
-
         var id = X.id,
             clrAll, ifr;
 
@@ -351,7 +392,6 @@ var DD = function(obj, sts, key) {
             clrAll ? drop.append(clrAll) : '';
             drop.append(scrollWrap);
             ddCont.append(drop);
-            //ddCont.append(ifr[0]);
 
             $('#' + id).on('click', '.DDinputWrap, .DDsearch, .arw', function(e) {
                 e.stopPropagation();
@@ -368,7 +408,6 @@ var DD = function(obj, sts, key) {
             keyDownEv(e, $(this));
         }).on('keyup', X.Fn.keyUpEv).on('blur', blurEv);
         X.layerOpenStatus = (X.srchBx !== false) ? true : false;
-        //} // for loop end
 
 
         X.fillData(); // to append data dynamically at run time in Dropdown     
@@ -381,8 +420,6 @@ var DD = function(obj, sts, key) {
                 if (Ides) {
                     for (var y in Ides) {
                         var id = Ides[y];
-
-                        //X.inpHid.attr('value','');
                         if (X.chkBox) {
                             X.removeAllTags();
                         } else {
@@ -391,7 +428,6 @@ var DD = function(obj, sts, key) {
                         }
                         X.Allflg = '';
                         X.hideDD();
-                        //X.dependent ? X.onClickLi(X.obj, '') : '';
                     }
                 }
                 if (param['clrCalbackfun']) {
@@ -493,7 +529,6 @@ var DD = function(obj, sts, key) {
                 X.Tagfocus = 0;
             }
         }
-        //var ulCont_hghtCont = $('#dp_'+id);
         var ulCont_parent = $('#ul_' + id)
         var ulCont = ulCont_parent.find('ul');
         var firstElm = ulCont.find('li:first-child');
@@ -513,7 +548,7 @@ var DD = function(obj, sts, key) {
                     X.curActElm.removeClass('active');
                     node.addClass('active');
                     X.curActElm = node;
-                    ieObj.scrollHandler(X.dpLyr, ulCont.parent(), firstElm, X.curActElm);
+                    scrollHandler(X.dpLyr, ulCont.parent(), firstElm, X.curActElm);
                 }
             }
         } else if (kCd == 38) { // up arrow key
@@ -525,7 +560,7 @@ var DD = function(obj, sts, key) {
                     _node.addClass('active');
                     X.curActElm = _node;
 
-                    ieObj.scrollHandler(X.dpLyr, ulCont.parent(), firstElm, X.curActElm);
+                    scrollHandler(X.dpLyr, ulCont.parent(), firstElm, X.curActElm);
                 }
             }
         }
@@ -658,7 +693,6 @@ var DD = function(obj, sts, key) {
                                 count++;
                             }
                             if (count == X.parentRefData[par].length) {
-                                //($('li.optgroup').attr('data-id','opt_'+par).class('chkd');
                                 $('li.optgroup[data-id="opt_' + par + '"]').find('a').addClass('chkd');
                             } else {
                                 $('li.optgroup[data-id="opt_' + par + '"]').find('a').removeClass('chkd');
@@ -1361,7 +1395,7 @@ DD.prototype.removeData = function(obj) {
     delete X.Ary[obj.key];
     X.liCntr = X.liCntr - cntr;
 
-    //Hack for Cja bug --- should be remove when the issue will fixed
+    //Temp Fix --- should be remove in future enhancement
     if (!$('#ul_' + X.id).find('li').length) {
         $('#' + X.id).find('.tagit').remove();
     }
@@ -1528,29 +1562,4 @@ DD.prototype.hideDD = function() {
 
 DD.Ary = {};
 DD.lastRef = {};
-
-
-var ieObj = {
-    scrollHandler: function(container, scrollContainer, firstElement, curActiveTouple) {
-        if (curActiveTouple.length) {
-            var scrollTopPos;
-
-            var scrollCont_maxHeight = scrollContainer.height();
-            var scrollCont_scrollTop = scrollContainer.scrollTop();
-            var visible_bottom = scrollCont_maxHeight + scrollCont_scrollTop;
-            var high_top = (curActiveTouple.position().top + scrollContainer.scrollTop());
-            var high_bottom = high_top + curActiveTouple.outerHeight();
-
-            if (high_bottom >= visible_bottom) {
-                scrollTopPos = (high_bottom - scrollCont_maxHeight) > 0 ? high_bottom - scrollCont_maxHeight : 0;
-                scrollContainer.scrollTop(scrollTopPos);
-            } else if (high_top < scrollContainer.scrollTop()) {
-                scrollTopPos = high_top;
-                scrollContainer.scrollTop(scrollTopPos);
-            }
-            return scrollTopPos;
-        }
-    }
-};
-
-//end of custom dropdown//
+// End of droope
