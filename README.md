@@ -267,10 +267,5 @@ instance.select({
 ### Author
 [Mohd Saeed Khan](http://www.saeed3e.com)
 
-### Contributers
-    Nitin
-    Sakshi
-    Mahima
-
 ### Version 
     v1.0.0 --> Stable version first release.
