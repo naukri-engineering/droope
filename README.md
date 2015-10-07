@@ -105,7 +105,6 @@ new DD(params);
 
 Name  | Type | Default Value | Description
 --- |--- | --- | ---
-allChk    | Boolean | false |
 appendTags | Boolean | false | By default tags inserted in prepend manner, to reverse it set true. 
 id  | String | none | Droope main container Id.
 clearAllInside | Boolean | false |    {'Text':'ClearAll'}
@@ -119,7 +118,6 @@ preText | String  | "You have selected" |  to show pretext when selection made f
 postText | String | "item(s)" |  to show post text when selection made from Droope in "tagInSeparate" container case
 parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple becomes selectable and if a user selects any optgroup then all its children automatically selected.
 postPlaceholder | String | none | In multi-select Droope to replace default placeholder with postPlaceholder when input box become squeeze.
-preventClickFor | | |
 prefillData | Array/String/integer | none | to pre-selected data in Droope passed key(s) in Array/String/integer form.
 searchBox | Boolean| true | to enable or disable search box
 sortPrefix | String | none | if JSON data having numeric keys and to prevent JSON data sorting, add any string against each key in JSON data and specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
@@ -268,4 +266,4 @@ instance.select({
 [Mohd Saeed Khan](http://www.saeed3e.com)
 
 ### Version 
-    v1.0.0 --> Stable version first release.
+    v1.0.0
