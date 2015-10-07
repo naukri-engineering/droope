@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroopeJS</title>
+    <meta name="keywords" content="Droope, DroopeJS, picker, javascript, custom dropdown, dropdown, jQuery dropdown, single select dropdwon, multiselect dropdown, dropdown with tags, customized dropdown">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="c/default.css">
+    <link rel="stylesheet" type="text/css" href="c/dd_style.css">
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="container">
+        <div class="cbp-af-header">
+            <div class="cbp-af-inner">
+                <h1><img class="dlogo" src="i/droopelogo1.png"/> droope.JS</h1>
+                <nav>
+                    <a style="color:#25E7D7" href="#">Demo</a>
+                    <a href="http://gitlab.infoedge.com/naukri-ui-dev/custom-dropdown/blob/gh-pages/README.md">Documentation</a>
+                    <a href="https://github.com/naukri-engineering">Other Plugins</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;height:1px;"></div>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">Single Select Cases</a>
+                </li>
+                <li>
+                    <a href="#">Multi Select Cases</a>
+                </li>
+                <li>
+                    <a href="#">Miscellaneous Cases</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <a href="#menu-toggle" class="navIcon" id="menu-toggle"></a>
+                    <div class="codeContainer">
+                        <div class="col-lg-6" style="display:block">
+                            <h3 class="">Single Select Default Case</h3>
+                            <div id="single" class="ddwn sng">
+                                <div class="DDwrap">
+                                    <div class="DDsearch">
+                                        <span class="arw"></span>
+                                        <div class="DDinputWrap">
+                                            <input type="text" class="srchTxt" name="abcd" placeholder="Single Select Case" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Single Select + (  prefill Case )</h3>
+                            <div id="singlePrefill" class="ddwn">
+                                <div class="DDwrap">
+                                    <div class="DDsearch">
+                                        <!-- <a class="delTxt cross" href="javascript:void(0)"></a> -->
+                                        <!-- <span class="arw"></span> -->
+                                        <div class="DDinputWrap">
+                                            <input type="text" class="srchTxt" name="abcd" placeholder="search" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Search Disabled</h3>
+                            <div id="singleSelect" class="ddwn sng">
+                                <div class="DDwrap">
+                                    <div class="DDsearch">
+                                        <span class="arw"></span>
+                                        <div class="DDinputWrap">
+                                            <input type="text" class="srchTxt" name="abcd" placeholder="Select value" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 style="margin-top:35px">Single Select Dependent</h3>
+                            <!--<a href="#" class="vImp" >View Implementation</a>-->
+                            <div id="dependent" class="ddwn" style="float:left">
+                                <div class="DDwrap">
+                                    <div class="DDsearch">
+                                        <span class="arw"></span>
+                                        <div class="DDinputWrap">
+                                            <input type="text" class="srchTxt" name="abcd" placeholder="search" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dependent1" class="ddwn" style="float:left; margin-left:15px">
+                                <div class="DDwrap">
+                                    <div class="DDsearch">
+                                        <span class="arw"></span>
+                                        <div class="DDinputWrap">
+                                            <input type="text" class="srchTxt" name="abcd" placeholder="search" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear:both; height:1px"></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>Multiple Select Cases</h3>
+                            <div id="dropdownAB" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" name="xyz" class="srchTxt" placeholder="multiSearch" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3>Optgroup + prefill Case </h3>
+                            <div id="dropdownAC" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" name="abc" class="srchTxt" placeholder="MultiSelect dropDown" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <i id="dropdownAC_err" class="erLbl"></i>
+                            <h3>Tags in separate container +  ClearAll button inside the</h3>
+                            <div id="idSap"></div>
+                            <div class="clr"></div>
+                            <div id="ddAC" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <a href="javascript:void(0)" id="Arw_ddAC" class="DDarwDwn"></a>
+                                            <div class="DDinputWrap">
+                                                <input type="text" class="srchTxt" name="tagInSaparateBox" placeholder="Multi Search" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 style="margin-top:20px">Multiple Select Dependent</h3>
+                            <!--<a href="#" class="vImp" >View Implementation</a>-->
+                            <div id="append" class="ddwn w50prc">
+                                <div class="DDwrap">
+                                    <a class="DDarwDwn" id="Arw_append" href="javascript:void(0)"></a>
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" class="srchTxt" name="abcd" placeholder="Select Job Category from the given list" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="append1" class="ddwn w50prc">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" class="srchTxt" name="abcd" placeholder="Role area dependent DD" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cl"></div>
+                            <h3 style="margin-top:40px">Multiple select without search</h3>
+                            <!--<a href="#" class="vImp" >View Implementation</a>-->
+                            <div id="UG" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" class="srchTxt" name="abcd" placeholder="search" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>Default open state</h3>
+                            <!-- <div id="mis1" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" name="xyz" class="srchTxt" placeholder="multiSearch" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> -->
+                            <ul id="misTag1" class="mt10 mb10 ofHd"></ul>
+                            <div id="mis2" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" name="xyz" class="srchTxt" placeholder="multiSearch" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="mt10 mb10 ofHd"></ul>
+                            <!-- <div id="mis" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" name="xyz" class="srchTxt" placeholder="multiSearch" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> -->
+                        </div>
+                        <footer>Info Edge (India) Ltd. © 2015</footer>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="j/droope_v1.0.0.js"></script>
+    <script type="text/javascript" src="j/data.js"></script>
+    <script type="text/javascript" src="j/call.js"></script>
+
+</html>

@@ -1,0 +1,103 @@
+/*----Dropdown--------------------------------------------*/
+
+/*Mendatory for Dropdown*/
+.ddwn .DDwrap { position:relative; z-index:1; /*box-shadow: 0 0 3px #9ecaed; */;border:1px solid #9ecaed;}
+.ddwn ul { list-style:none;cursor: text ; padding: 0; margin: 0}
+.ddwn .DDsearch input { outline: 0; border:0 none; width:100%; padding:4px 0; margin:0; color: #000}
+.sng.ddwn ul li input { width:85% }
+.drop { position: absolute; z-index: 999; display:none; border :1px solid #9ecaed;  background-color:#F3F3F3 }
+
+.DDsearch {  background:#fff; min-height: 0;}
+.DDsearch:after { content: ""; height: 0; clear: both; display: block }
+.DDsearch li {float: left}
+.ddwn .brBotN { border-bottom:0}
+.ddwn .DDinputWrap{padding:0 25px 0 5px}
+.backlayer { visibility:hidden; z-index: -1; height:0; position:absolute }
+::-ms-clear {
+	display: none
+}/*IE10 remove cross icon*/
+.active { background-color:#6DB6FF; color:#fff }
+/*End of Mendatory*/
+
+
+/*Add only when you use multiple dropdown secnario*/
+.drop ul.ChkboxEnb li a, .tagit .dCross, .tagit a, .cross, .DDarwUp,.DDarwDwn { color:#444; background:url(../i/chosen-sprite.png) no-repeat scroll right top transparent }
+
+.drop ul.ChkboxEnb li a, .drop ul.ChkboxEnb li a.chkd { background-position:-42px 4px; display: block; padding: 0 0 0 25px; text-decoration: none }
+.drop ul.ChkboxEnb li a.chkd { background-position:-42px -103px}
+.tagit .dCross, .tagit a { display: block; font-size: 1px; height: 14px; position: absolute; right: 3px; top: 9px; width: 14px; cursor:pointer; background-position:1px -88px}
+.tagit .dCross:hover, .tagit a:hover{
+  background-color: #BCBCBC;
+}
+.tagit {
+*white-space:nowrap; color: #fefefe; padding: 3px 20px 3px 5px; margin:2px; position: relative; float:left;
+background-color:#6DB6FF
+}
+.TagSelected { background:none repeat scroll 0 0 #D4D4D4 }
+/*End of multiple dropdown secnario*/
+
+
+/*Add only when you use Single dropdown secnario*/
+.drop ul li a, .drop ul li a.chkd { display: block; padding: 2px 0 2px 5px; text-decoration: none; word-wrap: break-word; color: #333}
+.drop ul li.active a { color:#fff }
+/*For optgroup*/
+.optgroup { color:#fff; cursor: default; font-weight: bold; padding:2px 6px; font-size: 16px; background-color:#767676;  display:list-item }
+/*If ClearAll inside parameter true*/
+.DDclearAll {text-align:center; line-height:25px; background-color:#F7F7F7; color:#6c98e0; cursor:pointer; border:solid #dfdede; border-width:1px 0; font-weight:bold }
+/*Use only when you use common validation*/
+i { display: none; font-size: 11px; font-style: normal }
+i.err { color: #FF0033; display: block; font-size:12px }
+.inpTxt.err, .selBox.err, .txtAra.err, .chkBox.err { background: none repeat scroll 0 0 #FFCCCC; border: 1px solid #FF0033 }
+/*Single Select crossIcon*/
+.cross { position:absolute; right:5px; background-position:0 -72px; margin:0; width:12px; height:12px; top: 9px; }
+.cross:hover { background-position:0 -88px; }
+
+/*DD Arrow*/
+.DDarwUp, .DDarwDwn{ background-position:-8px -39px;width:25px; height:26px; top:0;right:0; position:absolute; cursor:pointer}
+.DDarwDwn{background-position:8px -39px}
+
+.ddwn ul li input.setWidth{width:95%}
+
+
+/*Enhancement for single select case*/
+/*.singleSelect .srchTxt{
+	margin: 0; padding: 5px 0; border: 0; width: 100%; outline: none;
+}*/
+.drop .nScroll{
+	overflow-y:auto
+}
+
+
+.animated {
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.8,.8, .8);
+    transform: scale3d(.5,.5, .5);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+@-webkit-keyframes zoomOut {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1) translate3d(0, 100px, 0);
+    -webkit-transform-origin: center center;
+    -webkit-animation-timing-function: cubic-bezier(1, 1, 1, 1);
+  }
+}
+.zoomOut {
+  -webkit-animation-name: zoomOut;
+  animation-name: zoomOut;
+}
