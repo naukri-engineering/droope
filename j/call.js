@@ -6,7 +6,8 @@ $("#menu-toggle").click(function(e) {
 var sg1 = {
     id: "single",
     data: ug_course,
-    sortPrefix: 'a'
+    sortPrefix: 'a',
+    inputValReset:false
 };
 new DD(sg1);
 
@@ -69,7 +70,8 @@ var mult1 = {
     id: "dropdownAB",
     data: indDD,
     sortPrefix: 'a',
-    checkBox: true
+    checkBox: true,
+    inputValReset:false
 };
 new DD(mult1);
 
