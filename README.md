@@ -126,6 +126,7 @@ tagInSepContainer | String | none | Container id in which you want to show dropd
 tagTitle | Boolean | false | To enable title text on tags
 tags  | Boolean | true | To enable/disable tags
 tagsSorting | Boolean|  true | In multiple select Droope (especially in prefill case) to prevent automatic tags sorting
+inputValReset | Boolean | true | to prevent clear text string from input box on blur event
 
 
 ## Methods

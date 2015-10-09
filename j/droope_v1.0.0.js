@@ -59,6 +59,7 @@ var DD = function(obj, sts, key) {
     X.layerOpenStatus = false;
     X.tags = obj.tags === false ? obj.tags : true;
     X.TagSpCnt = obj.tagInSepContainer || false;
+    X.inputValReset = obj.inputValReset === false ? false : true;
 
     X.id = obj.id;
 
@@ -137,7 +138,7 @@ var DD = function(obj, sts, key) {
     if (!DD.lastRef['iseventBindOnDocument']) {
         $(document).on('click.dd', function(e) {
             var ddNode = $(e.target).parents('.ddwn');
-            if (!ddNode.length && !ddNode.attr('searchDisabled')) {
+            if (!ddNode.length && Boolean(ddNode.attr('searchDisabled')) !== true) {
                 ddNode.find('.DDwrap').removeClass('brBotN');
                 ddNode.find('.drop').hide();
             }
@@ -1357,7 +1358,7 @@ DD.prototype.setInputText = function() {
     }
     if (X.TagCnt) {
         X.TagSpCnt || X.tags === false ? X.inpElm.val(X.preTxt + ' ' + midVal + ' ' + X.postTxt) : '';
-    } else if (!X.inpHid.val()) {
+    } else if (!X.inpHid.val() && X.inputValReset) {
         $('#' + id).find('.cross').hide();
         X.inpElm.val('');
         X.inpElm.css({
@@ -1548,7 +1549,7 @@ DD.prototype.hideDD = function() {
         $('#' + id).find('.DDwrap').removeClass('brBotN');
         if (!X.chkBox) {
             X.curActElm ? X.curActElm.removeClass('active') : '';
-            if (!X.inpHid.val()) {
+            if (!X.inpHid.val() && X.inputValReset) {
                 X.inpElm.val('');
             }
         }
