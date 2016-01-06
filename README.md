@@ -187,6 +187,17 @@ instance.select({
     });
 ```
 
+#### selectedValues() : to get selected item(s) object.
+```javascript        
+    For Single Selection
+    instance.selectedValues();
+    //output:   [3]
+    
+    For multiple Selection
+    instance.selectedValues();
+    //output:   [3,4,6]
+```
+
 
 ## Callback methods
 
