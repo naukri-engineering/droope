@@ -97,7 +97,7 @@ var params = {
     id: "single",  // should be id of Droope main container
     data: JSONdata 
 };
-new DD(params);
+var instance = new DD(params);
 ```
 
 ### Parameters (Options)
