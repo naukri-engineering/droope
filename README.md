@@ -1,5 +1,5 @@
 ![picture](http://naukri-engineering.github.io/droope/i/droopelogo.png) 
-##  DroopeJS  
+##  DroopeJS  [![Build Status](https://travis-ci.org/naukri-engineering/droope.svg?branch=master)](https://travis-ci.org/naukri-engineering/droope) 
 One of our favorite dropdown plugin using jQuery and named it "droope" which is a Swedish name of "drop". It is unique dropdown plugin and provides endless features like searching, tagging, single-select, multi-select and can also define dependencies
 
 ## Demo
